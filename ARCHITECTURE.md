@@ -7,6 +7,8 @@
 ## Overview Diagram
 
 ```
+<img width="1050" height="591" alt="image" src="https://github.com/user-attachments/assets/6a5e2da4-fe8f-4764-870d-415237bd6a26" />
+
 ┌─────────────────────────────────────────────────────────────────────┐
 │                          AZURE CLOUD                                │
 │                                                                     │
