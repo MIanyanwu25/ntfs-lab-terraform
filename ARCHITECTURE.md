@@ -3,75 +3,10 @@
 **Complete technical design of the lab environment, why each component exists, and how data flows.**
 
 ---
+<img width="1050" height="591" alt="image" src="https://github.com/user-attachments/assets/25068f5a-2b0c-4779-89ce-5275d523bf69" />
 
 ## Overview Diagram
 
-```
-<img width="1050" height="591" alt="image" src="https://github.com/user-attachments/assets/6a5e2da4-fe8f-4764-870d-415237bd6a26" />
-
-┌─────────────────────────────────────────────────────────────────────┐
-│                          AZURE CLOUD                                │
-│                                                                     │
-│  ┌──────────────────────────────────────────────────────────────┐   │
-│  │           Virtual Network: 10.0.0.0/16                       │   │
-│  │           DNS Servers: 10.0.1.4 (DC01)                       │   │
-│  │                                                              │   │
-│  │  ┌─────────────────────────────────────────────────────┐     │   │
-│  │  │      Subnet: 10.0.1.0/24                            │     │   │
-│  │  │  (All three VMs on same subnet)                     │     │   │
-│  │  │                                                     │     │   │
-│  │  │  ┌──────────────────────────────────────────────┐   │     │   │
-│  │  │  │ DC01 (Domain Controller)                     │   │     │   │
-│  │  │  │ • Private IP: 10.0.1.4 (STATIC)              │   │     │   │
-│  │  │  │ • Public IP: <allocated>                     │   │     │   │
-│  │  │  │ • Roles: AD DS, DNS, DHCP                    │   │     │   │
-│  │  │  │ • Domain: lab.local (forest root)            │   │     │   │
-│  │  │  └──────────────────────────────────────────────┘   │     │   │
-│  │  │                                                     │     │   │
-│  │  │  ┌──────────────────────────────────────────────┐   │     │   │
-│  │  │  │ FS01 (File Server)                           │   │     │   │
-│  │  │  │ • Private IP: 10.0.1.x (Dynamic)             │   │     │   │
-│  │  │  │ • Public IP: <allocated>                     │   │     │   │
-│  │  │  │ • Shares: CompanyData (Finance, HR folders)  │   │     │   │
-│  │  │  │ • NTFS Permissions: per security group       │   │     │   │
-│  │  │  └──────────────────────────────────────────────┘   │     │   │
-│  │  │                                                     │     │   │
-│  │  │  ┌──────────────────────────────────────────────┐   │     │   │
-│  │  │  │ CLIENT01 (Windows 11 Workstation)            │   │     │   │
-│  │  │  │ • Private IP: 10.0.1.x (Dynamic)             │   │     │   │
-│  │  │  │ • Public IP: <allocated>                     │   │     │   │
-│  │  │  │ • Test user logins: alice, brian, carla, david   │     │   │
-│  │  │  └──────────────────────────────────────────────┘   │     │   │
-│  │  │                                                     │     │   │
-│  │  │              ┌────────────────────┐                 │     │   │
-│  │  │              │   NSG (Security)   │                 │     │   │
-│  │  │              │  RDP 3389 from     │                 │     │   │
-│  │  │              │  your IP only      │                 │     │   │
-│  │  │              │ Everything blocked │                 │     │   │
-│  │  │              └────────────────────┘                 │     │   │
-│  │  └─────────────────────────────────────────────────────┘     │   │
-│  └──────────────────────────────────────────────────────────────┘   │
-│                                                                     │
-│  ┌──────────────────────┐         ┌───────────────────────────┐     │
-│  │   Key Vault          │         │  rg-tfstate (Storage)     │     │
-│  │ (Secure storage)     │         │  Terraform state file     │     │
-│  │                      │         │  (Lab 2 also uses this)   │     │
-│  │ • VM admin password  │         └───────────────────────────┘     │
-│  │ • Lab 2 secrets      │                                           │  
-│  └──────────────────────┘                                           │
-└─────────────────────────────────────────────────────────────────────┘
-
-┌─────────────────────────────────────┐
-│   Your Local Machine                │
-│                                     │
-│  Terraform (Infrastructure as Code) │
-│  PowerShell (Configuration Scripts) │
-│  Azure CLI (Control Plane)          │
-│                                     │
-│  • terraform/ folder                │
-│  • scripts/ folder                  │
-│  • Git history                      │
-└─────────────────────────────────────┘
 ```
 
 ---
