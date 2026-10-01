@@ -181,33 +181,6 @@ icacls C:\folder /grant "LAB\GG-Finance-ReadOnly:(RX)"
 
 ---
 
-## How to Use These Files
-
-### Immediate: Get GitHub Ready
-1. Open `GITHUB_SETUP.md`
-2. Follow steps 1-6 to create your repo
-3. Copy files into the repo structure
-4. Push to GitHub
-
-### During Deployment
-1. Keep `README.md` open for quick start
-2. Follow `docs/DEPLOYMENT.md` for step-by-step details
-3. If something breaks, check `ERRORS.md`
-
-### For Learning
-1. Read `FORMATTING_GUIDE.md` to understand why it's organized this way
-2. Study `docs/ARCHITECTURE.md` for design decisions
-3. Review `docs/LESSONS.md` for cloud engineering patterns
-
-### For Teaching Others
-1. Share the GitHub link
-2. They read `README.md` → gets hooked
-3. They follow `docs/DEPLOYMENT.md` → deploys in 2 hours
-4. They hit an error → finds it in `ERRORS.md`
-5. They understand "why" → reads `docs/LESSONS.md`
-
----
-
 ## From Help Desk to Cloud Engineer
 
 This lab teaches the habits that separate help desk techs from cloud engineers:
@@ -247,18 +220,6 @@ This lab teaches the habits that separate help desk techs from cloud engineers:
 
 ---
 
-## Files Delivered
-
-| File | Lines | Purpose |
-|---|---|---|
-| README.md | 400+ | Main entry point & overview |
-| ERRORS.md | 500+ | Every error + fix from your journey |
-| GITHUB_SETUP.md | 600+ | How to recreate repo from scratch |
-| FORMATTING_GUIDE.md | 400+ | Why this structure, how to maintain it |
-| PROJECT_SUMMARY.md | This file | What you got and what it means |
-
-**Plus:** All template files for terraform/, scripts/, and docs/ folders ready to customize.
-
 ---
 
 ## Key Metrics
@@ -279,30 +240,6 @@ This lab teaches the habits that separate help desk techs from cloud engineers:
 When you write Terraform that's clear, scripts that are commented, and README that's scannable, you're not just solving today's problem. You're teaching future maintainers, enabling collaboration, and creating a record of why things are the way they are.
 
 This repo does all three.
-
----
-
-## Next: What to Do Right Now
-
-### Immediately (Next 30 minutes)
-1. ✅ Read `GITHUB_SETUP.md` Part 1-2 (create GitHub repo)
-2. ✅ Create the folder structure locally
-3. ✅ Copy these files into the repo
-
-### Today (Next 2 hours)
-1. ✅ Push to GitHub
-2. ✅ Send the link to anyone who asks about your lab
-3. ✅ Test that a clone → init → plan → apply works
-
-### This Week
-1. ✅ Deploy the lab one more time from scratch (catches any documentation gaps)
-2. ✅ Update ERRORS.md with any new issues you find
-3. ✅ Add badges to README (optional, looks professional)
-
-### Next Month
-1. ✅ Run through the deployment again — verify docs are still accurate
-2. ✅ Share with a coworker and watch them deploy
-3. ✅ Update docs based on their questions
 
 ---
 
